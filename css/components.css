@@ -1,0 +1,61 @@
+/* ===================================================== REUSABLE UI COMPONENTS
+   Cards, stats, transactions, progress bars, nav and feedback states.
+===================================================== */
+.balance-card { color:#fff; background:linear-gradient(135deg,#0d47a1,#1976d2); overflow:hidden; position:relative; }
+.balance-card .label { opacity:.82; font-size:.9rem; }
+.balance-value { font-size:2rem; font-weight:900; margin:5px 0 0; }
+.balance-meta { display:flex; justify-content:space-between; gap:10px; margin-top:18px; font-size:.82rem; opacity:.9; }
+.stat-card .stat-label { color:var(--muted); font-size:.78rem; }
+.stat-card .stat-value { font-size:1.25rem; font-weight:900; margin-top:4px; }
+.action-card { display:flex; align-items:center; gap:12px; min-height:92px; }
+.action-icon { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:var(--primary-soft); font-size:1.25rem; flex:0 0 auto; }
+.action-card h3 { margin:0; font-size:.96rem; }
+.action-card p { margin:3px 0 0; color:var(--muted); font-size:.78rem; }
+.transaction-item, .withdrawal-item, .notification-item {
+  display:flex; align-items:center; gap:12px; padding:13px 0; border-bottom:1px solid var(--border);
+}
+.transaction-item:last-child, .withdrawal-item:last-child, .notification-item:last-child { border-bottom:0; }
+.item-icon { width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:var(--primary-soft); }
+.item-main { min-width:0; flex:1; }
+.item-main strong { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.item-main small { color:var(--muted); }
+.amount-positive { color:var(--success); font-weight:900; }
+.amount-negative { color:var(--danger); font-weight:900; }
+.badge { display:inline-flex; align-items:center; padding:4px 9px; border-radius:999px; font-size:.72rem; font-weight:800; background:#eef2f6; }
+.badge-success { background:#e6f6ed; color:var(--success); }
+.badge-warning { background:#fff5dc; color:var(--warning); }
+.badge-danger { background:#fde8e8; color:var(--danger); }
+.progress { height:9px; border-radius:999px; background:#e9eef5; overflow:hidden; }
+.progress > span { display:block; height:100%; background:var(--primary); border-radius:inherit; transition:width .3s ease; }
+.bottom-nav {
+  position:fixed; left:0; right:0; bottom:0; z-index:30; height:var(--nav-height);
+  display:grid; grid-template-columns:repeat(4,1fr); background:#fff; border-top:1px solid var(--border);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bottom-nav a { display:grid; place-items:center; align-content:center; gap:2px; color:var(--muted); font-size:.7rem; font-weight:800; }
+.bottom-nav a.active { color:var(--primary); }
+.toast-container { position:fixed; left:14px; right:14px; bottom:calc(var(--nav-height) + 14px); z-index:100; display:grid; gap:8px; pointer-events:none; }
+.toast { pointer-events:auto; background:#17202a; color:#fff; padding:12px 14px; border-radius:13px; box-shadow:var(--shadow); animation:toastIn .2s ease; }
+.toast.success { background:#12683c; } .toast.error { background:#9f1d1d; }
+@keyframes toastIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+.modal { position:fixed; inset:0; z-index:200; display:grid; place-items:center; padding:20px; background:rgba(10,25,45,.5); }
+.modal-card { width:min(100%,440px); background:#fff; border-radius:20px; padding:20px; }
+.empty-state, .error-state { text-align:center; padding:28px 14px; color:var(--muted); }
+.profile-card { display:flex; gap:14px; align-items:center; }
+.avatar { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; background:var(--primary-soft); color:var(--primary-dark); font-size:1.25rem; font-weight:900; }
+.wheel {
+  width:min(78vw,300px); aspect-ratio:1; margin:16px auto; border-radius:50%;
+  border:10px solid #fff; box-shadow:0 12px 35px rgba(0,0,0,.15);
+  background:conic-gradient(#1565c0 0 12.5%,#64b5f6 12.5% 25%,#0d47a1 25% 37.5%,#90caf9 37.5% 50%,#1565c0 50% 62.5%,#64b5f6 62.5% 75%,#0d47a1 75% 87.5%,#90caf9 87.5% 100%);
+  transition:transform 4s cubic-bezier(.15,.8,.2,1);
+}
+
+/* ======================================================
+   SMARTLINK AD SESSION MODAL
+====================================================== */
+.ad-session-card { width:min(100%,460px); }
+.ad-session-header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+.ad-session-header h3 { margin:8px 0 0; font-size:1.15rem; }
+.ad-countdown { min-width:72px; height:72px; border-radius:20px; display:grid; place-items:center; background:var(--primary-soft); color:var(--primary-dark); font-size:1.25rem; font-weight:900; }
+.ad-session-progress { margin:18px 0; }
+.ad-session-actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; }

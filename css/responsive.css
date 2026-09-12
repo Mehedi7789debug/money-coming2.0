@@ -1,0 +1,21 @@
+/* ===================================================== RESPONSIVE RULES
+   Mobile is the primary target; wider layouts progressively expand.
+===================================================== */
+@media (min-width:600px) {
+  .page-container { padding-left:22px; padding-right:22px; }
+  .grid-actions { grid-template-columns:repeat(4,1fr); }
+}
+@media (max-width:380px) {
+  .grid-3 { grid-template-columns:1fr; }
+  .balance-value { font-size:1.75rem; }
+  .card { padding:15px; }
+  .btn { padding:11px 13px; }
+}
+@media (min-width:768px) {
+  :root { --nav-height:0px; }
+  .bottom-nav { position:static; width:min(100%,900px); margin:0 auto 20px; border:1px solid var(--border); border-radius:16px; }
+  .page-container { padding-bottom:24px; }
+}
+@media (min-width:1024px) {
+  .page-container { width:min(100%,1000px); }
+}
