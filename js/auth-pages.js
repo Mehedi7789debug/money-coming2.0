@@ -15,7 +15,7 @@ import { friendlyError } from "./utils.js";
 
 const app = initializeApp(APP_CONFIG.firebase);
 const auth = getAuth(app);
-const functions = getFunctions(app);
+const functions = getFunctions(app, "asia-southeast1");
 
 const form = document.querySelector("form");
 if (form?.id === "loginForm") form.addEventListener("submit", login);
