@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MONEY COMING Admin</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"></head>
+<body>
+<main class="page-container">
+  <div class="section-title"><h2>Admin Dashboard</h2><span id="adminRole" class="badge">Checking...</span></div>
+  <div id="adminGuard" class="card">Checking authorization...</div>
+  <section id="adminContent" class="hidden">
+    <div class="grid grid-2">
+      <a class="card action-card" href="users.html"><div class="action-icon">👥</div><div><h3>Users</h3><p>Search and manage accounts</p></div></a>
+      <a class="card action-card" href="withdrawals.html"><div class="action-icon">৳</div><div><h3>Withdrawals</h3><p>Review and process requests</p></div></a>
+      <a class="card action-card" href="transactions.html"><div class="action-icon">▤</div><div><h3>Transactions</h3><p>Review token ledger</p></div></a>
+      <a class="card action-card" href="settings.html"><div class="action-icon">⚙</div><div><h3>Reward Settings</h3><p>Configure token economy</p></div></a>
+    </div>
+  </section>
+</main>
+<div id="toastContainer" class="toast-container"></div>
+<script type="module" src="admin.js"></script>
+</body></html>
