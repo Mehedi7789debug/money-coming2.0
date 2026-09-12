@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login — MONEY COMING</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="brand-mark">MC</div>
+      <h1>Welcome back</h1><p class="muted">Sign in to your MONEY COMING account.</p>
+      <form id="loginForm" novalidate>
+        <label>Email<input id="email" type="email" autocomplete="email" required></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn btn-primary btn-full" type="submit">LOGIN</button>
+      </form>
+      <a class="auth-link" href="forgot-password.html">Forgot password?</a>
+      <p class="auth-footer">New here? <a href="register.html">Create an account</a></p>
+    </section>
+  </main>
+  <div id="toastContainer" class="toast-container"></div>
+  <script type="module" src="js/auth-pages.js"></script>
+</body>
+</html>

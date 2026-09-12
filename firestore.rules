@@ -1,0 +1,115 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isSelf(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    // ======================================================
+    // USERS
+    // Users may read their own profile. Profile creation/update
+    // is performed by trusted Cloud Functions.
+    // ======================================================
+    match /users/{uid} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow create, update, delete: if false;
+    }
+
+    // ======================================================
+    // WALLETS
+    // Wallet values are never directly writable by clients.
+    // ======================================================
+    match /wallets/{uid} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow write: if false;
+    }
+
+    // ======================================================
+    // TRANSACTION LEDGER
+    // Users can read their own ledger; nobody can fabricate entries.
+    // ======================================================
+    match /transactions/{id} {
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow create, update, delete: if false;
+    }
+
+    // ======================================================
+    // REWARD / WITHDRAWAL / BONUS RECORDS
+    // These records are created or changed only by backend code.
+    // ======================================================
+    match /adRewards/{id} {
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    match /adSessions/{id} {
+      // Session records are backend-controlled. Clients cannot create, edit,
+      // or delete sessions and therefore cannot fabricate a reward event.
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    match /withdrawals/{id} {
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    match /dailyBonuses/{id} {
+      allow read: if isSelf(id) || isAdmin();
+      allow write: if false;
+    }
+
+    match /wheelSpins/{id} {
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    match /referrals/{id} {
+      allow read: if signedIn() &&
+        (resource.data.referrerUid == request.auth.uid ||
+         resource.data.referredUid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    match /notifications/{id} {
+      allow read: if signedIn() && resource.data.uid == request.auth.uid;
+      allow write: if false;
+    }
+
+    match /supportTickets/{id} {
+      allow read: if signedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    // Settings are readable only where explicitly safe.
+    // Privileged settings changes must happen through backend functions.
+    match /settings/{id} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    match /adminUsers/{uid} {
+      allow read: if isAdmin() && (request.auth.uid == uid || true);
+      allow write: if false;
+    }
+
+    match /auditLogs/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

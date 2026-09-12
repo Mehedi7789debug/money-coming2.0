@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1565c0">
+  <meta name="description" content="MONEY COMING reward platform">
+  <title>MONEY COMING</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- ===================================================== SPLASH SCREEN
+       Shown briefly while Firebase checks the authentication session.
+  ====================================================== -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-logo">MC</div>
+    <h1>MONEY COMING</h1>
+    <p>Smart rewards. Verified earnings.</p>
+    <div class="loader" aria-label="Loading"></div>
+  </div>
+
+  <!-- ===================================================== APP SHELL
+       The authenticated application is rendered inside this shell.
+  ====================================================== -->
+  <div id="appShell" class="app-shell hidden">
+    <header id="appHeader" class="app-header"></header>
+    <main id="pageContainer" class="page-container" tabindex="-1"></main>
+    <nav id="bottomNavigation" class="bottom-nav" aria-label="Primary navigation"></nav>
+  </div>
+
+  <!-- ===================================================== GLOBAL UI
+       Toasts, dialogs and loading overlays are reusable across pages.
+  ====================================================== -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <div id="globalModal" class="modal hidden" role="dialog" aria-modal="true"></div>
+
+  <!-- Firebase SDKs. The exact CDN version can be updated centrally in
+       js/firebase.js if Firebase releases a newer compatible version. -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
