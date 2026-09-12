@@ -1,0 +1,31 @@
+<!-- ===================================================== PROFILE PAGE
+     Account identity and statistics.
+===================================================== -->
+<section>
+  <div class="section-title"><h2>Profile</h2></div>
+  <article class="card profile-card">
+    <div class="avatar" id="profileAvatar">MC</div>
+    <div><h2 id="profileName" style="margin:0">User</h2><div class="muted" id="profileEmail">—</div><span class="badge" id="profileStatus">—</span></div>
+  </article>
+  <article class="card" style="margin-top:12px">
+    <div class="grid grid-2">
+      <div><small class="muted">User ID</small><strong id="profileId">—</strong></div>
+      <div><small class="muted">Registered</small><strong id="profileDate">—</strong></div>
+    </div>
+  </article>
+  <div class="section-title"><h2>Statistics</h2></div>
+  <div class="grid grid-2">
+    <article class="card stat-card"><div class="stat-label">Total Earnings</div><div id="profileTotal" class="stat-value">0</div></article>
+    <article class="card stat-card"><div class="stat-label">Total Withdrawn</div><div id="profileWithdrawn" class="stat-value">0</div></article>
+    <article class="card stat-card"><div class="stat-label">Ads Watched</div><div id="profileAds" class="stat-value">0</div></article>
+    <article class="card stat-card"><div class="stat-label">Referrals</div><div id="profileRefs" class="stat-value">0</div></article>
+  </div>
+  <div class="section-title"><h2>Account</h2></div>
+  <div class="grid">
+    <a class="card action-card" href="#history" data-route="history"><div class="action-icon">▤</div><div><h3>Revenue History</h3><p>View your token ledger</p></div></a>
+    <a class="card action-card" href="#referral" data-route="referral"><div class="action-icon">👥</div><div><h3>Referral</h3><p>Manage your referral link</p></div></a>
+    <a class="card action-card" href="#support" data-route="support"><div class="action-icon">?</div><div><h3>Support</h3><p>Get help from the team</p></div></a>
+    <a class="card action-card" href="#settings" data-route="settings"><div class="action-icon">⚙</div><div><h3>Settings</h3><p>Account preferences</p></div></a>
+    <button id="logoutBtn" class="btn btn-danger" type="button">LOGOUT</button>
+  </div>
+</section>

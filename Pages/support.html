@@ -1,0 +1,19 @@
+<!-- ===================================================== SUPPORT
+     Ticket creation is sent to a trusted Cloud Function.
+===================================================== -->
+<section>
+  <div class="section-title"><h2>Support</h2></div>
+  <article class="card">
+    <h3>FAQ</h3>
+    <p class="muted">Rewards are credited only after server verification. Withdrawal requests are manually processed in the first release.</p>
+  </article>
+  <div class="section-title"><h2>Create Ticket</h2></div>
+  <article class="card">
+    <form id="ticketForm">
+      <label>Subject<input name="subject" maxlength="100" required></label>
+      <label>Category<select name="category"><option>ACCOUNT</option><option>REWARD</option><option>WITHDRAWAL</option><option>OTHER</option></select></label>
+      <label>Message<textarea name="message" rows="5" maxlength="2000" required></textarea></label>
+      <button class="btn btn-primary btn-full" type="submit">SUBMIT TICKET</button>
+    </form>
+  </article>
+</section>

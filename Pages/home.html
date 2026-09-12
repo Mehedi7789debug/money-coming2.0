@@ -1,0 +1,59 @@
+<!-- ===================================================== HOME DASHBOARD
+     Primary earning dashboard based on the requested blue/white reference style.
+===================================================== -->
+<section>
+  <div class="section-title"><h2>Dashboard</h2><span class="badge badge-success">LIVE</span></div>
+
+  <article class="card balance-card">
+    <div class="label">Available Balance</div>
+    <div id="balanceValue" class="balance-value">Loading...</div>
+    <div class="balance-meta"><span>Today: <strong id="todayEarnings">0</strong></span><span>Lifetime: <strong id="totalEarnings">0</strong></span></div>
+  </article>
+
+  <div class="section-title"><h2>Statistics</h2></div>
+  <div class="grid grid-3">
+    <article class="card stat-card"><div class="stat-label">Today's Earnings</div><div id="todayEarningsStat" class="stat-value">0</div></article>
+    <article class="card stat-card"><div class="stat-label">Total Earnings</div><div id="totalEarningsStat" class="stat-value">0</div></article>
+    <article class="card stat-card"><div class="stat-label">Ads Watched</div><div id="adsWatched" class="stat-value">0</div></article>
+  </div>
+
+  <div class="section-title"><h2>Earn More</h2></div>
+  <div class="grid grid-2">
+    <a class="card action-card" href="#daily-bonus" data-route="daily-bonus"><div class="action-icon">🎁</div><div><h3>DAILY BONUS</h3><p>Claim your daily reward</p></div></a>
+    <a class="card action-card" href="#lucky-wheel" data-route="lucky-wheel"><div class="action-icon">🎡</div><div><h3>LUCKY WHEEL</h3><p>One server-validated spin</p></div></a>
+    <a class="card action-card" href="#referral" data-route="referral"><div class="action-icon">👥</div><div><h3>REFERRAL</h3><p>Invite and earn</p></div></a>
+    <a class="card action-card" href="#withdraw" data-route="withdraw"><div class="action-icon">৳</div><div><h3>WITHDRAW</h3><p>Request a payout</p></div></a>
+  </div>
+
+  <div class="section-title"><h2>Rewarded Ads</h2><span id="adCount" class="badge">0 / 30</span></div>
+  <article class="card">
+    <p class="muted">Watch legitimate rewarded advertisements. A reward is issued only after the ad provider's completion event is verified server-side.</p>
+    <div class="progress"><span id="adProgress" style="width:0%"></span></div>
+    <button id="watchAdsButton" class="btn btn-primary btn-full" type="button">WATCH ADS — +40 TOKENS</button>
+    <small class="muted">30-second ad session. Daily limit and cooldown are enforced by Firebase.</small>
+  </article>
+</section>
+
+
+<!-- =====================================================
+     SMARTLINK AD SESSION MODAL
+     The external AdOperator SmartLink opens in a popup.
+===================================================== -->
+<div id="adRewardModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adModalTitle">
+  <div class="modal-card ad-session-card">
+    <div class="ad-session-header">
+      <div>
+        <span class="badge badge-warning">ADVERTISEMENT</span>
+        <h3 id="adModalTitle">Keep the ad open</h3>
+      </div>
+      <div id="adCountdown" class="ad-countdown">30s</div>
+    </div>
+    <p id="adSessionStatus" class="muted">Your advertisement session is starting…</p>
+    <div class="progress ad-session-progress"><span style="width:100%"></span></div>
+    <div class="ad-session-actions">
+      <button id="cancelAdSession" class="btn btn-secondary" type="button">CANCEL</button>
+      <button id="closeAdModal" class="btn btn-primary" type="button">CLOSE</button>
+    </div>
+    <small class="muted">Closing the advertisement before the required time results in no token reward.</small>
+  </div>
+</div>
